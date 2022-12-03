@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export const TransactionHistory = ({ items }) => {
   return (
-    <table class="transaction-history">
+    <table className="transaction-history">
       <thead>
         <tr>
           <th>Type</th>
@@ -24,7 +24,7 @@ export const TransactionHistory = ({ items }) => {
 };
 
 TransactionHistory.propTypes = {
-  type: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
-  currency: PropTypes.string.isRequired,
+  type: PropTypes.objectOf(PropTypes.string.isRequired),
+  amount: PropTypes.objectOf(PropTypes.number.isRequired),
+  currency: PropTypes.objectOf(PropTypes.string.isRequired),
 };
