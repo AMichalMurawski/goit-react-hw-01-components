@@ -6,9 +6,9 @@ export const Statistics = ({ title, statistics }) => {
     <section className={css.statistics}>
       <h2 className={css.title}>{title}</h2>
 
-      <ul className={css["stat-list"]}>
+      <ul className={css['stat-list']}>
         {statistics.map((statistic, index) => (
-          <li className={css.item} key={index}>
+          <li className={css['item' + (index % 3)]} key={index}>
             <span className={css.label}>{statistic.label}</span>
             <span className={css.percentage}>{statistic.percentage}%</span>
           </li>
@@ -19,6 +19,11 @@ export const Statistics = ({ title, statistics }) => {
 };
 
 Statistics.propTypes = {
-  label: PropTypes.objectOf(PropTypes.string.isRequired),
-  percentage: PropTypes.objectOf(PropTypes.number.isRequired),
+  title: PropTypes.string.isRequired,
+  statistics: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };
