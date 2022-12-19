@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './css/Statistics.module.css';
+import css from './Statistics.module.css';
 
 export const Statistics = ({ title, statistics }) => {
   return (
@@ -8,7 +8,7 @@ export const Statistics = ({ title, statistics }) => {
 
       <ul className={css['stat-list']}>
         {statistics.map((statistic, index) => (
-          <li className={css['item' + (index % 3)]} key={index}>
+          <li className={css['item' + (index % 3)]} key={statistic.id}>
             <span className={css.label}>{statistic.label}</span>
             <span className={css.percentage}>{statistic.percentage}%</span>
           </li>
@@ -22,6 +22,7 @@ Statistics.propTypes = {
   title: PropTypes.string.isRequired,
   statistics: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
     })
